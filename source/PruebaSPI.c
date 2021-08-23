@@ -4,7 +4,7 @@
 #include "pin_mux.h"
 #include "clock_config.h"
 #include "LPC845.h"
-#include "cosas.h"
+#include "./headers/cosas.h"
 #include "fsl_debug_console.h"
 /* TODO: insert other include files here. */
 
@@ -16,12 +16,12 @@
 int main(void) {
 
     /* Init board hardware. */
-    BOARD_InitBootPins();
-    BOARD_InitBootClocks();
-    BOARD_InitBootPeripherals();
+   // BOARD_InitBootPins();
+   // BOARD_InitBootClocks();
+    //BOARD_InitBootPeripherals();
 #ifndef BOARD_INIT_DEBUG_CONSOLE_PERIPHERAL
     /* Init FSL debug console. */
-    BOARD_InitDebugConsole();
+    //BOARD_InitDebugConsole();
 #endif
 
     PRINTF("Hello World\n");
@@ -33,7 +33,7 @@ int main(void) {
         i++ ;
         /* 'Dummy' NOP to allow source level single stepping of
             tight while() loop */
-        __asm volatile ("nop");
+      //  __asm volatile ("nop");
     }
     return 0 ;
 }
@@ -62,7 +62,7 @@ void InicializarSPI(void){
 	//--> Ahora intentare enviar informacion usando registro TXDATCTL con control   -- Pag 313 <---
 	//SPI1CLKSEL&0x01FFFFFF;
 	//CFG1[0]=  0x00000285;
-	TXDATCTL1[0]=0x0F4D0110;
+	//TXDATCTL1[0]=0x0F4D0110;
 	//TxCon1[0]= 0x0F4D0110;  //-->   Enn teoria esto deberia enviar los datos por SPI que dato? creooo que un 3 no lo se rick    <--
 
 
